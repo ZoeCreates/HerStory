@@ -6,14 +6,76 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DBE826BF30993534007B00A9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE826BE30993534007B00A9 /* WidgetKit.framework */; };
+		DBE826C130993534007B00A9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE826C030993534007B00A9 /* SwiftUI.framework */; };
+		DBE826CC30993535007B00A9 /* HerStoryWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DBE826BC30993534007B00A9 /* HerStoryWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBE826CA30993535007B00A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB24CDEB306E337F007DEBCE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBE826BB30993534007B00A9;
+			remoteInfo = HerStoryWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DBE826D130993535007B00A9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DBE826CC30993535007B00A9 /* HerStoryWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DB24CDF3306E337F007DEBCE /* HerStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HerStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE826BC30993534007B00A9 /* HerStoryWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HerStoryWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE826BE30993534007B00A9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DBE826C030993534007B00A9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DBE826CD30993535007B00A9 /* Exceptions for "HerStoryWidget" folder in "HerStoryWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DBE826BB30993534007B00A9 /* HerStoryWidgetExtension */;
+		};
+		DBE826D3309935F6007B00A9 /* Exceptions for "HerStory" folder in "HerStoryWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Quote.swift,
+				QuoteLibrary.swift,
+			);
+			target = DBE826BB30993534007B00A9 /* HerStoryWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB24CDF5306E337F007DEBCE /* HerStory */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DBE826D3309935F6007B00A9 /* Exceptions for "HerStory" folder in "HerStoryWidgetExtension" target */,
+			);
 			path = HerStory;
+			sourceTree = "<group>";
+		};
+		DBE826C230993534007B00A9 /* HerStoryWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DBE826CD30993535007B00A9 /* Exceptions for "HerStoryWidget" folder in "HerStoryWidgetExtension" target */,
+			);
+			path = HerStoryWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +88,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBE826B930993534007B00A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE826C130993534007B00A9 /* SwiftUI.framework in Frameworks */,
+				DBE826BF30993534007B00A9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				DB24CDF5306E337F007DEBCE /* HerStory */,
+				DBE826C230993534007B00A9 /* HerStoryWidget */,
+				DBE826BD30993534007B00A9 /* Frameworks */,
 				DB24CDF4306E337F007DEBCE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +114,18 @@
 			isa = PBXGroup;
 			children = (
 				DB24CDF3306E337F007DEBCE /* HerStory.app */,
+				DBE826BC30993534007B00A9 /* HerStoryWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DBE826BD30993534007B00A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBE826BE30993534007B00A9 /* WidgetKit.framework */,
+				DBE826C030993534007B00A9 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +138,12 @@
 				DB24CDEF306E337F007DEBCE /* Sources */,
 				DB24CDF0306E337F007DEBCE /* Frameworks */,
 				DB24CDF1306E337F007DEBCE /* Resources */,
+				DBE826D130993535007B00A9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DBE826CB30993535007B00A9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DB24CDF5306E337F007DEBCE /* HerStory */,
@@ -69,6 +154,28 @@
 			productName = HerStory;
 			productReference = DB24CDF3306E337F007DEBCE /* HerStory.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DBE826BB30993534007B00A9 /* HerStoryWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE826CE30993535007B00A9 /* Build configuration list for PBXNativeTarget "HerStoryWidgetExtension" */;
+			buildPhases = (
+				DBE826B830993534007B00A9 /* Sources */,
+				DBE826B930993534007B00A9 /* Frameworks */,
+				DBE826BA30993534007B00A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DBE826C230993534007B00A9 /* HerStoryWidget */,
+			);
+			name = HerStoryWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HerStoryWidgetExtension;
+			productReference = DBE826BC30993534007B00A9 /* HerStoryWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +188,9 @@
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					DB24CDF2306E337F007DEBCE = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					DBE826BB30993534007B00A9 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -100,12 +210,20 @@
 			projectRoot = "";
 			targets = (
 				DB24CDF2306E337F007DEBCE /* HerStory */,
+				DBE826BB30993534007B00A9 /* HerStoryWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DB24CDF1306E337F007DEBCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE826BA30993534007B00A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +240,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBE826B830993534007B00A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBE826CB30993535007B00A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBE826BB30993534007B00A9 /* HerStoryWidgetExtension */;
+			targetProxy = DBE826CA30993535007B00A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DB24CDFC306E3380007DEBCE /* Debug */ = {
@@ -249,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HerStory/HerStory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -276,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HerStory/HerStory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -292,6 +427,60 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoe.HerStory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DBE826CF30993535007B00A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HerStoryWidget/HerStoryWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HerStoryWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HerStoryWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoe.HerStory.HerStoryWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBE826D030993535007B00A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HerStoryWidget/HerStoryWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HerStoryWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HerStoryWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoe.HerStory.HerStoryWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,6 +504,15 @@
 			buildConfigurations = (
 				DB24CDFF306E3380007DEBCE /* Debug */,
 				DB24CE00306E3380007DEBCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE826CE30993535007B00A9 /* Build configuration list for PBXNativeTarget "HerStoryWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE826CF30993535007B00A9 /* Debug */,
+				DBE826D030993535007B00A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

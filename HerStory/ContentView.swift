@@ -2,23 +2,19 @@
 //  ContentView.swift
 //  HerStory
 //
-//  Created by Zi Xia on 9/30/26.
+//  Created by Zi Xia on 11/2/26.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @AppStorage("onboardingStep") private var step = 0
 
-#Preview {
-    ContentView()
+    var body: some View {
+        switch step {
+        case 0:  WelcomeView().onTapGesture { step = 1 }
+        case 1:  TopicPickerView { step = 2 }
+        default: MainTabView()
+        }
+    }
 }
