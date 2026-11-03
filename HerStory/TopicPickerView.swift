@@ -21,11 +21,12 @@ struct TopicPickerView: View {
         if s.contains(topic) { s.remove(topic) } else { s.insert(topic) }
         selectedRaw = s.map(\.rawValue).joined(separator: ",")
         WidgetCenter.shared.reloadAllTimelines()   // 通知 widget 马上刷新
+        ReminderManager.reschedule()               // 主题变了，推送内容也跟着变
     }
 
     var body: some View {
         ZStack {
-            Color(red: 0.96, green: 0.93, blue: 0.88).ignoresSafeArea()
+            Theme.background.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 24) {
                 Text("What do you need\nmore of right now?")
                     .font(.system(size: 32, weight: .medium, design: .serif))
@@ -41,7 +42,7 @@ struct TopicPickerView: View {
                             Image(systemName: isOn ? "checkmark.circle.fill" : "circle")
                         }
                         .padding()
-                        .background(isOn ? Color.pink.opacity(0.15) : .white,
+                        .background(isOn ? Theme.accent.opacity(0.25) : Theme.card,
                                     in: RoundedRectangle(cornerRadius: 16))
                     }
                     .buttonStyle(.plain)
@@ -49,9 +50,10 @@ struct TopicPickerView: View {
 
                 Spacer()
                 Button(action: onDone) {
-                    Text("Continue").font(.headline).foregroundStyle(.white)
+                    Text("Continue").font(.headline)
+                        .foregroundStyle(Theme.current.isLight ? .white : .black)
                         .frame(maxWidth: .infinity).padding()
-                        .background(.black, in: Capsule())
+                        .background(Theme.text, in: Capsule())
                 }
                 .disabled(selected.isEmpty)
                 .opacity(selected.isEmpty ? 0.4 : 1)

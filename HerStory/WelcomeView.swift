@@ -3,7 +3,7 @@ import SwiftUI
 struct WelcomeView: View {
     var body: some View {
         ZStack {
-            Color(red: 0.96, green: 0.93, blue: 0.88)
+            Theme.background
                 .ignoresSafeArea()
 
             VStack(spacing: 24) {

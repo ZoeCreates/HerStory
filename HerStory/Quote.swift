@@ -31,3 +31,9 @@ enum Shared {
     static let groupID = "group.com.zoe.HerStory"
     static let defaults = UserDefaults(suiteName: groupID)!
 }
+
+extension Quote {
+    var shareText: String {
+        "“\(text)”\n— \(author), \(source)\n\nvia HerStory"
+    }
+}

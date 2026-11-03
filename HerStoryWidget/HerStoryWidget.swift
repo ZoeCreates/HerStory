@@ -1,27 +1,29 @@
 import WidgetKit
 import SwiftUI
 
-// ① Entry：某一个时间点要显示的数据
+// ① Entry：某一个时间点要显示的数据（现在多带一个主题）
 struct QuoteEntry: TimelineEntry {
     let date: Date
     let quote: Quote
+    var theme: AppTheme = .paper
 }
 
 // ② Provider：告诉系统什么时候显示什么
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> QuoteEntry {
-        QuoteEntry(date: .now, quote: QuoteLibrary.all[0])
+        QuoteEntry(date: .now, quote: QuoteLibrary.all[0], theme: .saved)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (QuoteEntry) -> Void) {
         let raw = Shared.defaults.string(forKey: "selectedTopics") ?? ""
-        completion(QuoteEntry(date: .now, quote: QuoteLibrary.today(topics: Topic.parse(raw))))
+        completion(QuoteEntry(date: .now, quote: QuoteLibrary.today(topics: Topic.parse(raw)), theme: .saved))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<QuoteEntry>) -> Void) {
         let now = Date.now
         let raw = Shared.defaults.string(forKey: "selectedTopics") ?? ""
-        let entry = QuoteEntry(date: now, quote: QuoteLibrary.today(now, topics: Topic.parse(raw)))
+        // 主题每次刷新都从 App Group 里重新读，App 里换了主题这里就跟着变
+        let entry = QuoteEntry(date: now, quote: QuoteLibrary.today(now, topics: Topic.parse(raw)), theme: .saved)
         let tomorrow = Calendar.current.startOfDay(for: now.addingTimeInterval(86400))
         completion(Timeline(entries: [entry], policy: .after(tomorrow)))
     }
@@ -33,8 +35,10 @@ struct HerStoryWidgetView: View {
     let entry: QuoteEntry
 
     var body: some View {
+        let theme = entry.theme
+
         switch family {
-        case .accessoryRectangular:          // 锁屏：长方形
+        case .accessoryRectangular:          // 锁屏：长方形（锁屏颜色由系统决定，主题管不到）
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.quote.text)
                     .font(.headline)
@@ -45,16 +49,20 @@ struct HerStoryWidgetView: View {
             }
         case .accessoryInline:               // 锁屏：时间上方的一行字
             Text("“\(entry.quote.text)”")
-        default:                             // 主屏幕：小方块和中长条
-            VStack(alignment: .leading, spacing: 8) {
+        default:                             // 主屏幕：小方块和中长条，跟着主题变
+            VStack(alignment: theme.isCentered ? .center : .leading, spacing: 8) {
+                Spacer(minLength: 0)
                 Text(entry.quote.text)
-                    .font(.system(.body, design: .serif))
-                    .minimumScaleFactor(0.6)
+                    .font(theme.quoteFont(size: family == .systemSmall ? 16 : 18))
+                    .multilineTextAlignment(theme.isCentered ? .center : .leading)
+                    .minimumScaleFactor(0.5)
                 Spacer(minLength: 0)
                 Text("— \(entry.quote.author)")
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(theme == .noir || theme == .sunset || theme == .cobalt ? theme.muted : theme.accent)
             }
+            .frame(maxWidth: .infinity, alignment: theme.isCentered ? .center : .leading)
+            .foregroundStyle(theme.text)
         }
     }
 }
@@ -64,7 +72,7 @@ struct HerStoryWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "HerStoryWidget", provider: Provider()) { entry in
             HerStoryWidgetView(entry: entry)
-                .containerBackground(Color(red: 0.96, green: 0.93, blue: 0.88), for: .widget)
+                .containerBackground(entry.theme.backgroundStyle, for: .widget)
         }
         .configurationDisplayName("Daily Quote")
         .description("A quote from an inspiring woman, every day.")
@@ -78,8 +86,11 @@ struct HerStoryWidget: Widget {
     QuoteEntry(date: .now, quote: QuoteLibrary.all[0])
 }
 
-#Preview("Home", as: .systemSmall) {
+#Preview("Home · themes", as: .systemSmall) {
     HerStoryWidget()
 } timeline: {
-    QuoteEntry(date: .now, quote: QuoteLibrary.all[3])
+    QuoteEntry(date: .now, quote: QuoteLibrary.all[3], theme: .cobalt)
+    QuoteEntry(date: .now, quote: QuoteLibrary.all[3], theme: .paper)
+    QuoteEntry(date: .now, quote: QuoteLibrary.all[3], theme: .sunset)
+    QuoteEntry(date: .now, quote: QuoteLibrary.all[3], theme: .poster)
 }
