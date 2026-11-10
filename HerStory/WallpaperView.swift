@@ -70,12 +70,24 @@ struct WallpaperSheet: View {
                     Label(saved ? "Saved to Photos" : "Save to Photos",
                           systemImage: saved ? "checkmark" : "arrow.down.to.line")
                         .font(.headline)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Theme.current.isLight ? .white : .black)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(saved ? Color.green : Color.white, in: Capsule())
+                        .background(saved ? Color.green : Theme.text, in: Capsule())   // 浅色主题用深色按钮
                 }
                 .disabled(image == nil || saved)
+
+                // 直接把壁纸图片分享出去（发给朋友、Instagram 等）
+                if let image {
+                    ShareLink(item: Image(uiImage: image),
+                              preview: SharePreview("HerStory wallpaper", image: Image(uiImage: image))) {
+                        Label("Share image", systemImage: "square.and.arrow.up")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .overlay(Capsule().stroke(.primary.opacity(0.3)))
+                    }
+                }
             }
             .padding(24)
             .navigationTitle("Wallpaper")
