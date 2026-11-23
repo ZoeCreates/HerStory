@@ -24,7 +24,7 @@ struct QuoteCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(quote.author).font(.headline)
                 Text(quote.role).font(.subheadline).foregroundStyle(.secondary)
-                Text(quote.source).font(.caption).foregroundStyle(.tertiary)
+                Text(quote.displaySource).font(.caption).foregroundStyle(.tertiary)
             }
             if woman != nil {
                 Label("Read her story", systemImage: "book")

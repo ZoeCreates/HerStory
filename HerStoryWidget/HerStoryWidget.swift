@@ -44,7 +44,7 @@ struct HerStoryWidgetView: View {
                     .font(.headline)
                     .lineLimit(3)
                     .minimumScaleFactor(0.7)
-                Text("— \(entry.quote.author)")
+                Text("— \(entry.quote.credit)")
                     .font(.caption2)
             }
         case .accessoryInline:               // 锁屏：时间上方的一行字
@@ -57,7 +57,7 @@ struct HerStoryWidgetView: View {
                     .multilineTextAlignment(theme.isCentered ? .center : .leading)
                     .minimumScaleFactor(0.5)
                 Spacer(minLength: 0)
-                Text("— \(entry.quote.author)")
+                Text("— \(entry.quote.credit)")
                     .font(.caption)
                     .foregroundStyle(theme == .noir || theme == .sunset || theme == .cobalt ? theme.muted : theme.accent)
             }

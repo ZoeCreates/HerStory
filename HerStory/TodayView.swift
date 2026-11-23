@@ -5,9 +5,10 @@ struct TodayView: View {
     var date: Date = .now            // 有默认值的 prop，相当于可选 prop
     var showsBackground = true       // 放在翻页器里时，背景由翻页器统一画
     @AppStorage("selectedTopics", store: Shared.defaults) private var selectedRaw = ""
+    @AppStorage(QuoteKind.storageKey, store: Shared.defaults) private var kindsRaw = ""
 
     var body: some View {
-        let quote = QuoteLibrary.today(date, topics: Topic.parse(selectedRaw))
+        let quote = QuoteLibrary.today(date, topics: Topic.parse(selectedRaw), kinds: QuoteKind.parse(kindsRaw))
         let theme = Theme.current      // 读了它，主题一换这个页面就自动重画
 
         ZStack {

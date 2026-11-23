@@ -55,6 +55,12 @@ struct QuoteActions: View {
                 Label("Wallpaper", systemImage: "photo")
             }
 
+            if let link = quote.readLink {   // 只有书 / 影视 / 剧场的 quote 才有
+                Link(destination: link) {
+                    Label(quote.readLabel, systemImage: quote.kind.icon)
+                }
+            }
+
             if compact && woman != nil {
                 Button {
                     showStory = true

@@ -266,5 +266,78 @@ enum WomenLibrary {
               headline: "Actor & UN Women Goodwill Ambassador",
               story: "Emma was cast as Hermione Granger in the Harry Potter films at age nine. While still acting, she studied English literature at Brown University and graduated in 2014. That same year she was named a UN Women Goodwill Ambassador, and she later started a feminist book club, Our Shared Shelf.",
               keyMoment: "In September 2014 she gave a speech at the United Nations launching HeForShe, a campaign inviting men and boys to stand up for gender equality."),
+
+        // MARK: - 书 / 影视 / 剧场 quote 的创作者（2026-11-23 加入）
+        Woman(name: "L. M. Montgomery",
+              years: "1874–1942",
+              headline: "Novelist",
+              story: "Lucy Maud Montgomery lost her mother before she was two and was raised by her strict grandparents in Cavendish, a farming village on Prince Edward Island in Canada. She trained as a teacher and wrote stories in every spare moment, selling them to magazines. Her novel Anne of Green Gables, about a talkative red-haired orphan, came out in 1908 and became an instant bestseller. She went on to write around 20 novels.",
+              keyMoment: "Several publishers turned down Anne of Green Gables. Discouraged, she put the manuscript away in a hatbox. When she took it out and tried again, it was accepted."),
+
+        Woman(name: "Sylvia Plath",
+              years: "1932–1963",
+              headline: "Poet & novelist",
+              story: "Sylvia published her first poem at eight. She won a scholarship to Smith College and later a Fulbright to study at Cambridge, where she met the poet Ted Hughes. She wrote with great intensity about ambition, identity and the pressure on young women, and she lived with depression for much of her life. Her only novel, The Bell Jar, came out in 1963 under a pen name.",
+              keyMoment: "In 1982 her Collected Poems won the Pulitzer Prize for Poetry. It was the first time the prize had been given to a poet after her death."),
+
+        Woman(name: "Mary Oliver",
+              years: "1935–2019",
+              headline: "Poet",
+              story: "Mary grew up in Ohio and found refuge in the woods near her home, where she walked with a notebook. She attended college but never finished a degree. She wrote clear, plain poems about nature and paying attention, and became one of the best-loved poets in America. Her collection American Primitive won the Pulitzer Prize in 1984, and New and Selected Poems won the National Book Award in 1992.",
+              keyMoment: "As a teenager she visited the home of the poet Edna St. Vincent Millay in upstate New York. She ended up living there for years, helping Millay's sister organize the late poet's papers."),
+
+        Woman(name: "Tara Westover",
+              years: "b. 1986",
+              headline: "Memoirist & historian",
+              story: "Tara grew up on a mountain in rural Idaho in a survivalist family. She never went to school, and she had no birth certificate until she was nine. She taught herself enough math and grammar to pass the ACT and entered Brigham Young University at 17. She went on to earn a PhD in history from the University of Cambridge. Her memoir, Educated (2018), became a worldwide bestseller.",
+              keyMoment: "In one of her first college lectures she raised her hand to ask what the word \"Holocaust\" meant. She had never heard of it."),
+
+        Woman(name: "Greta Gerwig",
+              years: "b. 1983",
+              headline: "Writer & director",
+              story: "Greta grew up in Sacramento, California, and studied English and philosophy at Barnard College. She started out acting in and co-writing small independent films, including Frances Ha. Her first solo film as a director, Lady Bird (2017), earned her an Oscar nomination for Best Director. She then adapted Little Women (2019) and co-wrote and directed Barbie (2023).",
+              keyMoment: "In 2023 Barbie passed $1 billion at the global box office, making Greta the first woman to reach that mark as a solo director."),
+
+        Woman(name: "Céline Sciamma",
+              years: "b. 1978",
+              headline: "Writer & director",
+              story: "Céline grew up near Paris and studied screenwriting at La Fémis, France's national film school. Her films focus on girls and women: Water Lilies (2007), Tomboy (2011) and Girlhood (2014) form a trilogy about growing up. Her period film Portrait of a Lady on Fire (2019) tells the love story between a painter and the woman she is hired to paint.",
+              keyMoment: "At the 2019 Cannes Film Festival, Portrait of a Lady on Fire won the award for Best Screenplay."),
+
+        Woman(name: "Patty Jenkins",
+              years: "b. 1971",
+              headline: "Director",
+              story: "Patty grew up in a military family; her father was an Air Force fighter pilot. She studied painting at Cooper Union in New York before turning to film at the American Film Institute. Her first feature, Monster (2003), which she wrote and directed, won Charlize Theron the Oscar for Best Actress.",
+              keyMoment: "In 2017 she directed Wonder Woman. It became the highest-grossing live-action film ever directed by a woman at the time, and proved a female superhero could lead a blockbuster."),
+
+        Woman(name: "Brenda Chapman",
+              years: "b. 1962",
+              headline: "Director & story artist",
+              story: "Brenda grew up in Illinois drawing constantly, and studied animation at CalArts. At Disney she worked as a story artist on The Little Mermaid and became head of story on The Lion King. In 1998 she co-directed The Prince of Egypt, becoming the first woman to direct an animated feature for a major Hollywood studio. She created Brave at Pixar, inspired by her relationship with her own daughter.",
+              keyMoment: "In 2013 Brave won the Oscar for Best Animated Feature. Brenda became the first woman ever to win that award."),
+
+        Woman(name: "Phoebe Waller-Bridge",
+              years: "b. 1985",
+              headline: "Writer & actor",
+              story: "Phoebe grew up in London and trained as an actor at RADA, but found few roles she wanted to play, so she started writing her own. Fleabag began as a one-woman play at the Edinburgh Festival Fringe in 2013 and became a BBC series in 2016. She also created the spy thriller Killing Eve.",
+              keyMoment: "At the 2019 Emmy Awards she won three awards in one night for Fleabag: for writing, for lead actress and for best comedy series."),
+
+        Woman(name: "Lorraine Hansberry",
+              years: "1930–1965",
+              headline: "Playwright",
+              story: "Lorraine grew up on Chicago's South Side. When she was eight, her family moved into a white neighborhood and faced violent hostility; her father's legal fight over their home went all the way to the U.S. Supreme Court. Those experiences shaped A Raisin in the Sun, about a Black family trying to buy a house in a white neighborhood. She died of cancer at just 34.",
+              keyMoment: "In 1959 A Raisin in the Sun opened on Broadway, the first play by a Black woman ever produced there. It won the New York Drama Critics' Circle Award."),
+
+        Woman(name: "Ntozake Shange",
+              years: "1948–2018",
+              headline: "Poet & playwright",
+              story: "Born Paulette Williams in New Jersey, she grew up in a home full of music, art and visiting writers. She created a new form she called the \"choreopoem,\" mixing poetry, dance and music. Her choreopoem for colored girls who have considered suicide / when the rainbow is enuf, told through seven women, opened on Broadway in 1976 and was nominated for a Tony Award.",
+              keyMoment: "In 1971 she gave herself a new name: Ntozake, \"she who comes with her own things,\" and Shange, \"who walks like a lion.\""),
+
+        Woman(name: "Sara Bareilles",
+              years: "b. 1979",
+              headline: "Singer-songwriter & composer",
+              story: "Sara grew up in Eureka, California, and started performing her songs at open mics while studying at UCLA. Her breakout hit, \"Love Song\" (2007), was written in frustration when her record label kept asking for a radio-friendly love song. She has been nominated for many Grammys and later wrote \"Brave,\" an anthem about speaking up.",
+              keyMoment: "She wrote the music and lyrics for the musical Waitress, which opened on Broadway in 2016 as the first Broadway musical with women in all four top creative roles."),
     ]
 }

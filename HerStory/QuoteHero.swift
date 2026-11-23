@@ -16,12 +16,29 @@ struct QuoteHero: View {
 
     private var alignment: HorizontalAlignment { theme.isCentered ? .center : .leading }
 
+    /// 这个主题会不会在作者下面再显示一行出处
+    private var showsSourceLine: Bool {
+        showSource && ![AppTheme.poster, .lilac, .noir, .sunset].contains(theme)
+    }
+
+    /// 没有出处那一行的主题，把作品名并进作者名里："Charlotte Brontë, Jane Eyre"
+    private var authorName: String {
+        showsSourceLine ? quote.author : quote.credit
+    }
+
     var body: some View {
         VStack(alignment: alignment, spacing: 22 * scale) {
             if theme == .film {                       // 胶片风格的小红点
                 Circle()
                     .fill(theme.accent)
                     .frame(width: 8 * scale, height: 8 * scale)
+            }
+
+            if showSource, let badge = quote.kind.badge {   // 作品 quote 的小标签：BOOK / FILM & TV / THEATRE
+                Text(badge)
+                    .font(.system(size: 11 * scale, weight: .semibold))
+                    .tracking(2 * scale)
+                    .foregroundStyle(theme.muted)
             }
 
             quoteText
@@ -50,7 +67,7 @@ struct QuoteHero: View {
         switch theme {
         case .paper:
             VStack(alignment: .leading, spacing: 4 * scale) {
-                Text(quote.author.uppercased())
+                Text(authorName.uppercased())
                     .font(.system(size: 12 * scale, weight: .semibold))
                     .tracking(2.5 * scale)
                     .foregroundStyle(theme.text)
@@ -61,24 +78,24 @@ struct QuoteHero: View {
                 Rectangle()
                     .fill(theme.accent)
                     .frame(width: 22 * scale, height: 2 * scale)
-                Text(quote.author)
+                Text(authorName)
                     .font(.system(size: 14 * scale, weight: .semibold))
                     .foregroundStyle(theme.text)
             }
         case .lilac:
-            Text(quote.author)
+            Text(authorName)
                 .font(.system(size: 13 * scale))
                 .foregroundStyle(theme.text)
                 .padding(.horizontal, 14 * scale)
                 .padding(.vertical, 6 * scale)
                 .background(.white.opacity(0.45), in: Capsule())
         case .noir:
-            Text("— \(quote.author)")
+            Text("— \(authorName)")
                 .font(.system(size: 14 * scale))
                 .foregroundStyle(theme.muted)
         default:   // cobalt, sunset, film
             VStack(alignment: alignment, spacing: 4 * scale) {
-                Text(quote.author)
+                Text(authorName)
                     .font(.system(size: 15 * scale, weight: .semibold))
                     .foregroundStyle(theme.muted)
                 if showSource && theme != .sunset { sourceText }
@@ -87,7 +104,7 @@ struct QuoteHero: View {
     }
 
     private var sourceText: some View {
-        Text(quote.source)
+        Text(quote.displaySource)
             .font(.system(size: 13 * scale, design: .serif).italic())
             .foregroundStyle(theme.muted.opacity(0.8))
     }
