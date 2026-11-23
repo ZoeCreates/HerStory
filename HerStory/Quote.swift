@@ -110,11 +110,11 @@ extension Quote {
         switch kind {
         case .person:
             return nil
-        case .film:     // JustWatch：能看到在哪个平台能看
-            components = URLComponents(string: "https://www.justwatch.com/us/search")
-            components?.queryItems = [URLQueryItem(name: "q", value: work)]
-        case .book, .theatre:
-            components = URLComponents(string: "https://openlibrary.org/search")
+        case .film:     // Rotten Tomatoes：影评和评分
+            components = URLComponents(string: "https://www.rottentomatoes.com/search")
+            components?.queryItems = [URLQueryItem(name: "search", value: work)]
+        case .book, .theatre:   // Goodreads：书评和评分；很多剧本也出版成书
+            components = URLComponents(string: "https://www.goodreads.com/search")
             components?.queryItems = [URLQueryItem(name: "q", value: "\(work) \(author)")]
         }
         return components?.url
